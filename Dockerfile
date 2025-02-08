@@ -1,13 +1,12 @@
-FROM ruby:2.6-alpine
+FROM ruby:3.4.1-alpine
 
-ENV RUBYGEMS_VERSION=2.7.6
-ENV BUNDLER_VERSION=1.16.6
+ENV RUBYGEMS_VERSION=3.6.2
+ENV BUNDLER_VERSION=2.6.2
 
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY Gemfile.docker /app/Gemfile
-COPY Gemfile.lock /app/
+COPY . /app
 
 RUN gem install bundler -v ${BUNDLER_VERSION}
 RUN apk add --no-cache bash nodejs mysql-client mysql-dev sqlite-dev less
@@ -17,8 +16,5 @@ RUN apk add --no-cache alpine-sdk \
       && bundle install -j4 --without postgresql:sqlite \
       && apk del alpine-sdk .build_deps \
       && rm -rf /tmp/* /var/cache/apk/*
-
-COPY . /app
-COPY Gemfile.docker /app/Gemfile
 
 CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0"]
