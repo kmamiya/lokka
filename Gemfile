@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "~> 2.6"
+ruby "~> 3.4"
 
 gem 'activesupport', '~> 5.2'
 gem 'aws-sdk-s3'
@@ -41,6 +41,7 @@ gem 'slim', '~> 3.0.7'
 gem 'tilt', '~> 2.0'
 gem 'tux'
 gem 'yard-sinatra', '1.0.0'
+gem 'ffi', '~>1.17'
 
 Dir['public/plugin/lokka-*/Gemfile'].each {|path| load(path) }
 
