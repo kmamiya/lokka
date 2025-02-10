@@ -53,6 +53,15 @@ $ docker-compose up
 
 open http://localhost:9292 on your browser.
 
+## [TEMPORARY] Deploy as Docker container
+
+```sh
+$ docker build -t lokka_production -f Dockerfile.production .
+$ mysqladmin -u root -p -h ${HOST IP} create lokka_production
+$ docker run -e DATABASE_URL='mysql://root:password@db.local/lokka_production' -e LOKKA_ENV=production --add-host=db.local:${HOST IP} -it lokka.production:latest rake db:setup
+$ docker run -e DATABASE_URL='mysql://root:password@db.local/lokka_production' -e LOKKA_ENV=production --add-host=db.local:${HOST IP} -p 8080:9292 -it lokka.production:latest
+```
+
 ## Test
 
 ```sh
