@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby "~> 3.4"
+ruby "~> 3.3"
 
 gem 'activesupport', '~> 5.2'
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', '~> 1.180'
 gem 'backports', '2.3.0'
 gem 'builder'
 gem 'bundler'
@@ -41,7 +41,8 @@ gem 'slim', '~> 3.0.7'
 gem 'tilt', '~> 2.0'
 gem 'tux'
 gem 'yard-sinatra', '1.0.0'
-gem 'ffi', '~>1.17'
+gem 'ffi', '~> 1.17'
+gem 'sorted_set'
 
 Dir['public/plugin/lokka-*/Gemfile'].each {|path| load(path) }
 
