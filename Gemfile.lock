@@ -110,7 +110,7 @@ GEM
     factory_girl (4.9.0)
       activesupport (>= 3.0.0)
     fastercsv (1.5.5)
-    ffi (1.17.1)
+    ffi (1.16.3)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -259,7 +259,7 @@ DEPENDENCIES
   dm-validations (~> 1.2.0)
   erubis (~> 2.7.0)
   factory_girl (~> 4.0)
-  ffi (~> 1.17)
+  ffi (~> 1.16)
   haml (~> 5.0)
   haml-lint
   i18n (~> 0.7)
@@ -287,7 +287,7 @@ DEPENDENCIES
   yard-sinatra (= 1.0.0)
 
 RUBY VERSION
-   ruby 3.4.1p0
+   ruby 2.6.10
 
 BUNDLED WITH
    2.6.2

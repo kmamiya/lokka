@@ -1,7 +1,7 @@
-FROM ruby:3.3.7-alpine
+FROM ruby:2.6.10-alpine
 
-ENV RUBYGEMS_VERSION=3.6.2
-ENV BUNDLER_VERSION=2.6.2
+ENV RUBYGEMS_VERSION=3.0.3.1
+ENV BUNDLER_VERSION=2.1.2
 ENV DATABASE_URL='mysql://root:password@db.local/lokka_production'
 
 RUN mkdir -p /app
