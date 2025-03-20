@@ -29,7 +29,7 @@ gem 'nokogiri'
 gem 'padrino-helpers', '~> 0.14.1.1'
 gem 'rack'
 gem 'rack-flash', '~> 0.1.2'
-gem 'rake', '~> 12.3'
+gem 'rake'
 gem 'redcarpet'
 gem 'RedCloth', '4.2.9'
 gem 'request_store'
@@ -53,7 +53,7 @@ end
 
 group :development do
   gem 'dm-sqlite-adapter', '1.2.0'
-  gem 'haml-lint'
+  gem 'haml_lint'
   gem 'rubocop'
 end
 
