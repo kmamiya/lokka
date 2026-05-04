@@ -1,0 +1,22 @@
+[Unit]
+Description=logicalrabbit.jp website by Lokka.
+# Documentation=
+Wants=network.target docker.service
+After=network.target docker.service
+# ConditionPathExists=
+
+[Service]
+# EnvironmentFile=
+# ExecStartPre=
+ExecStart=/usr/local/bin/start_docker_logicalrabbit_jp 'logicalrabbit' '/tmp/logicalrabbit_jp_cid' ${LOGICALRABBIT_JP_PORT:-8080}
+ExecReload=/usr/bin/docker restart `cat /tmp/logicalrabbit_jp_cid`
+ExecStop=/usr/bin/docker stop `cat /tmp/logicalrabbit_jp_cid`  && rm /tmp/logicalrabbit_jp_cid
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=forking
+RuntimeDirectory=docker_logicalrabbit_jp
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target
