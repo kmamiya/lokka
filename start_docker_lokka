@@ -1,0 +1,18 @@
+#!/bin/bash
+
+docker_cmd='/usr/bin/docker'
+
+lokka_image_name='lokka_production:latest'
+app_name=${1}
+http_port=${2}
+
+cidfile="/tmp/${app_name}_cid"
+env_file="/var/lib/docker/environments/lokka_${app_name}"
+network_name="${app_name}-net"
+
+echo "starting lokka for ${app_name}"
+if [[ -w ${cidfile} ]]; then
+  ${docker_cmd} start `cat ${cidfile}`
+else
+  ${docker_cmd} run -td -p ${http_port}:9292 --network=${network_name} --restart=always --env-file=${env_file} --cidfile=${cidfile} --add-host=db:160.16.72.95 ${lokka_image_name}
+fi
